@@ -1,0 +1,714 @@
+{
+	"info": {
+		"_postman_id": "c23f5519-fd62-4a70-b554-ee1794a20d50",
+		"name": "jobSearch",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26559151",
+		"_collection_link": "https://www.postman.com/flight-astronaut-59344314/workspace/my-workspace/collection/26559151-c23f5519-fd62-4a70-b554-ee1794a20d50?action=share&source=collection_link&creator=26559151"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "signUp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"yousef\",\r\n    \"lastName\": \"salah\",\r\n    \"email\": \"yousef@gmail.com\",\r\n    \"password\": \"123456\",\r\n    \"confirmPassword\":\"123456\",\r\n    \"recoveryEmail\": \"hr\",\r\n    \"DOB\": \"2003-04-12\",\r\n    \"mobileNumber\": \"01201502001\",\r\n    \"role\": \"User\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signIn",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{    \"email\": \"yousef@gmail.com\",\r\n    \"password\": \"12356\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/signin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "forgetPassword",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{    \"email\": \"yousef@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/forgetpassword",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"forgetpassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "resetPassword",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"yousef@gmail.com\",\r\n  \"OTP\": \"$2a$08$Uo8cWeIJZUt9bV9/80DWee.gKge3gYAIk/Kv6.y2qx0bRLJjdneii\",\r\n  \"newPassword\": \"123\",\r\n  \"confirmPassword\": \"123\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/resetpassword",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"resetpassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUser",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "getUserWithSameRecovery",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InlvdXNlZkBnbWFpbC5jb20iLCJpZCI6IjY1YzhlMmIzMDUzOGY3OTMxMDY1ZGZiOSIsImlhdCI6MTcwNzY2NDE3NX0.6Pi3udU32yW8pzN0HOe6ipYIXIzV2gduYnB0Bg0z3tc",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/auth/samerecovery?recoveryEmail=user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"samerecovery"
+							],
+							"query": [
+								{
+									"key": "recoveryEmail",
+									"value": "user"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUserFromAnother",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "updatePassword",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InlvdXNlZkBnbWFpbC5jb20iLCJpZCI6IjY1YzhlMmIzMDUzOGY3OTMxMDY1ZGZiOSIsImlhdCI6MTcwNzY2NDE3NX0.6Pi3udU32yW8pzN0HOe6ipYIXIzV2gduYnB0Bg0z3tc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"oldPassword\": \"123456\",\r\n  \"newPassword\":\"yousef\",\r\n    \"confirmPassword\":\"yousef\"\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/updatepassword",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"updatepassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateUser",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/auth/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteUser",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/auth/deleteaccount",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"deleteaccount"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Company",
+			"item": [
+				{
+					"name": "search company by name",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhyMkBnbWFpbC5jb20iLCJpZCI6IjY1YzhlMjRlMDUzOGY3OTMxMDY1ZGZiNiIsImlhdCI6MTcwNzY3NTA1NX0.EpzyRWDwgVaBvf6sy85WPr0puq4A9qGvq-8wOJojShQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/company/tesla",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"company",
+								"tesla"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get company with jobs",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhyMkBnbWFpbC5jb20iLCJpZCI6IjY1YzhlMjRlMDUzOGY3OTMxMDY1ZGZiNiIsImlhdCI6MTcwNzY3NTA1NX0.EpzyRWDwgVaBvf6sy85WPr0puq4A9qGvq-8wOJojShQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/company/withjops/65c90e746f3ef3376d1e7fa4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"company",
+								"withjops",
+								"65c90e746f3ef3376d1e7fa4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all apps",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhyMkBnbWFpbC5jb20iLCJpZCI6IjY1YzhlMjRlMDUzOGY3OTMxMDY1ZGZiNiIsImlhdCI6MTcwNzY3NTA1NX0.EpzyRWDwgVaBvf6sy85WPr0puq4A9qGvq-8wOJojShQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/company/withjops/65c90e746f3ef3376d1e7fa4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"company",
+								"withjops",
+								"65c90e746f3ef3376d1e7fa4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addCompany",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhyMkBnbWFpbC5jb20iLCJpZCI6IjY1YzhlMjRlMDUzOGY3OTMxMDY1ZGZiNiIsImlhdCI6MTcwNzY3NTA1NX0.EpzyRWDwgVaBvf6sy85WPr0puq4A9qGvq-8wOJojShQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"companyName\": \"insta\",\r\n  \"description\": \"A multinational technology company specializing in Internet-related services and products.\",\r\n  \"industry\": \"Technology\",\r\n  \"address\": \"1600 Amphitheatre Parkway, Mountain View, CA 94043, USA\",\r\n  \"numberOfEmployees\": [15,20],\r\n  \"companyEmail\": \"info@insta.com\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/company",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"company"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateCompany",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhyMkBnbWFpbC5jb20iLCJpZCI6IjY1YzhlMjRlMDUzOGY3OTMxMDY1ZGZiNiIsImlhdCI6MTcwNzY3NTA1NX0.EpzyRWDwgVaBvf6sy85WPr0puq4A9qGvq-8wOJojShQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"companyName\": \"tesla\",\r\n  \"companyEmail\": \"info@tesla.com\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/company/65c90e746f3ef3376d1e7fa4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"company",
+								"65c90e746f3ef3376d1e7fa4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteCompany",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhyMkBnbWFpbC5jb20iLCJpZCI6IjY1YzhlMjRlMDUzOGY3OTMxMDY1ZGZiNiIsImlhdCI6MTcwNzY3NTA1NX0.EpzyRWDwgVaBvf6sy85WPr0puq4A9qGvq-8wOJojShQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/company/65c90dbe6f3ef3376d1e7f9b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"company",
+								"65c90dbe6f3ef3376d1e7f9b"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Job",
+			"item": [
+				{
+					"name": "apply to job",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YzY4ZGE4MTcxYWZlOGVmMjBjYTk2ZCIsImlhdCI6MTcwNzY1NjMzM30.lBTZPJToPPIl1QODqc0k7MerEU0tMokdQrJklznmkME",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "pdf",
+									"type": "file",
+									"src": "/D:/Route/Yousef-Salah-CV.pdf"
+								},
+								{
+									"key": "jobId",
+									"value": "65c81a9924c3ee1eb3b4e61c",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/job/apply",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"job",
+								"apply"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add job",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhyMkBnbWFpbC5jb20iLCJpZCI6IjY1YzhlMjRlMDUzOGY3OTMxMDY1ZGZiNiIsImlhdCI6MTcwNzY3NTA1NX0.EpzyRWDwgVaBvf6sy85WPr0puq4A9qGvq-8wOJojShQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"jobTitle\": \"  Backend developer\",\r\n    \"jobLocation\": \"onsite\",\r\n    \"workingTime\": \"full-time\",\r\n    \"seniorityLevel\": \"Senior\",\r\n    \"jobDescription\": \"We are looking for a skilled Node.js Backend Developer to join our team.\",\r\n    \"technicalSkills\": [\"Node.js\", \"Express.js\", \"MongoDB\", \"RESTful APIs\"],\r\n    \"softSkills\": [\"Communication\", \"Teamwork\", \"Problem-solving\"],\r\n    \"company\":\"65c79245600a262dc1915592\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/job",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"job"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update job",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhyMkBnbWFpbC5jb20iLCJpZCI6IjY1YzhlMjRlMDUzOGY3OTMxMDY1ZGZiNiIsImlhdCI6MTcwNzY3NTA1NX0.EpzyRWDwgVaBvf6sy85WPr0puq4A9qGvq-8wOJojShQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"jobTitle\": \"  flutter developer\",\r\n    \"jobLocation\": \"onsite\",\r\n    \"workingTime\": \"full-time\",\r\n    \"seniorityLevel\": \"Senior\",\r\n    \"jobDescription\": \"We are looking for a skilled Node.js Backend Developer to join our team.\",\r\n    \"technicalSkills\": [\"Node.js\", \"Express.js\", \"MongoDB\", \"RESTful APIs\"],\r\n    \"softSkills\": [\"Communication\", \"Teamwork\", \"Problem-solving\"],\r\n    \"company\":\"65c79245600a262dc1915592\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/job/65c91743283becc2f1469aff",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"job",
+								"65c91743283becc2f1469aff"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete job",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhyMkBnbWFpbC5jb20iLCJpZCI6IjY1YzhlMjRlMDUzOGY3OTMxMDY1ZGZiNiIsImlhdCI6MTcwNzY3NTA1NX0.EpzyRWDwgVaBvf6sy85WPr0puq4A9qGvq-8wOJojShQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/job/65c91c59b9b0a04843899316",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"job",
+								"65c91c59b9b0a04843899316"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all jobs",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhyMkBnbWFpbC5jb20iLCJpZCI6IjY1YzhlMjRlMDUzOGY3OTMxMDY1ZGZiNiIsImlhdCI6MTcwNzY3NTA1NX0.EpzyRWDwgVaBvf6sy85WPr0puq4A9qGvq-8wOJojShQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"jobTitle\": \"  flutter developer\",\r\n    \"jobLocation\": \"onsite\",\r\n    \"workingTime\": \"full-time\",\r\n    \"seniorityLevel\": \"Senior\",\r\n    \"jobDescription\": \"We are looking for a skilled Node.js Backend Developer to join our team.\",\r\n    \"technicalSkills\": [\"Node.js\", \"Express.js\", \"MongoDB\", \"RESTful APIs\"],\r\n    \"softSkills\": [\"Communication\", \"Teamwork\", \"Problem-solving\"],\r\n    \"company\":\"65c79245600a262dc1915592\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/job",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"job"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get job with name company",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhyMkBnbWFpbC5jb20iLCJpZCI6IjY1YzhlMjRlMDUzOGY3OTMxMDY1ZGZiNiIsImlhdCI6MTcwNzY3NTA1NX0.EpzyRWDwgVaBvf6sy85WPr0puq4A9qGvq-8wOJojShQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"jobTitle\": \"  flutter developer\",\r\n    \"jobLocation\": \"onsite\",\r\n    \"workingTime\": \"full-time\",\r\n    \"seniorityLevel\": \"Senior\",\r\n    \"jobDescription\": \"We are looking for a skilled Node.js Backend Developer to join our team.\",\r\n    \"technicalSkills\": [\"Node.js\", \"Express.js\", \"MongoDB\", \"RESTful APIs\"],\r\n    \"softSkills\": [\"Communication\", \"Teamwork\", \"Problem-solving\"],\r\n    \"company\":\"65c79245600a262dc1915592\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/job/company?name=tesla",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"job",
+								"company"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "tesla"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get job with filter",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhyMkBnbWFpbC5jb20iLCJpZCI6IjY1YzhlMjRlMDUzOGY3OTMxMDY1ZGZiNiIsImlhdCI6MTcwNzY3NTA1NX0.EpzyRWDwgVaBvf6sy85WPr0puq4A9qGvq-8wOJojShQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"jobTitle\": \"  flutter developer\",\r\n    \"jobLocation\": \"onsite\",\r\n    \"workingTime\": \"full-time\",\r\n    \"seniorityLevel\": \"Senior\",\r\n    \"jobDescription\": \"We are looking for a skilled Node.js Backend Developer to join our team.\",\r\n    \"technicalSkills\": [\"Node.js\", \"Express.js\", \"MongoDB\", \"RESTful APIs\"],\r\n    \"softSkills\": [\"Communication\", \"Teamwork\", \"Problem-solving\"],\r\n    \"company\":\"65c79245600a262dc1915592\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/job/filteredJobs?jobLocation=remotly&workingTime=full-time",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"job",
+								"filteredJobs"
+							],
+							"query": [
+								{
+									"key": "jobLocation",
+									"value": "remotly"
+								},
+								{
+									"key": "workingTime",
+									"value": "full-time"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
